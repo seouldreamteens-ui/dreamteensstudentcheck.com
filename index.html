@@ -11,100 +11,70 @@
     --amber:#D97706;--amber-lt:#FFFBEB;
     --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
     --gray-400:#9CA3AF;--gray-500:#6B7280;--gray-600:#4B5563;--gray-800:#1F2937;
-    --radius:16px;--radius-sm:10px;
+    --radius:18px;--radius-sm:10px;
     --font:'Pretendard','Noto Sans KR',sans-serif;
-    --shadow:0 4px 24px rgba(124,58,237,.13);
+    --shadow:0 6px 28px rgba(124,58,237,.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   body{font-family:var(--font);background:linear-gradient(160deg,#EDE9FE 0%,#F5F3FF 40%,#F0FDF4 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;}
-
-  .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 22px;width:100%;max-width:420px;}
-  .logo{text-align:center;margin-bottom:20px;}
-  .logo-icon{font-size:2.6rem;display:block;margin-bottom:6px;}
-  .logo-title{font-size:1.25rem;font-weight:800;color:var(--gray-800);}
-  .logo-sub{font-size:.78rem;color:var(--gray-400);margin-top:2px;}
-
-  /* 스텝 인디케이터 */
-  .steps{display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:20px;}
-  .step{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;background:var(--gray-100);color:var(--gray-400);flex-shrink:0;transition:all .2s;}
-  .step.active{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.3);}
-  .step.done{background:var(--green);color:#fff;}
-  .step-line{flex:1;height:2px;background:var(--gray-200);max-width:36px;transition:background .3s;}
-  .step-line.done{background:var(--green);}
-  .step-label-row{display:flex;justify-content:center;gap:4px;margin-bottom:16px;}
-  .step-lbl{font-size:.65rem;color:var(--gray-400);flex:1;text-align:center;max-width:70px;}
-  .step-lbl.active{color:var(--primary);font-weight:700;}
-
-  /* 섹션 라벨 */
-  .section-label{font-size:.82rem;font-weight:700;color:var(--gray-600);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-  .section-label .badge{background:var(--primary);color:#fff;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;flex-shrink:0;}
-
+  .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 22px;width:100%;max-width:400px;}
+  .logo{text-align:center;margin-bottom:24px;}
+  .logo-icon{font-size:2.8rem;display:block;margin-bottom:6px;}
+  .logo-title{font-size:1.3rem;font-weight:800;color:var(--gray-800);}
+  .logo-sub{font-size:.76rem;color:var(--gray-400);margin-top:3px;}
+  /* 타입 선택 버튼 */
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .type-btn{padding:18px 12px;border:2px solid var(--gray-200);border-radius:14px;background:#fff;font-family:var(--font);cursor:pointer;text-align:center;transition:all .18s;}
+  .type-btn .icon{font-size:2rem;display:block;margin-bottom:8px;}
+  .type-btn .label{font-size:.9rem;font-weight:700;color:var(--gray-700);}
+  .type-btn .desc{font-size:.7rem;color:var(--gray-400);margin-top:3px;}
+  .type-btn.sel-new{border-color:#F59E0B;background:#FFFBEB;}
+  .type-btn.sel-reg{border-color:var(--primary);background:var(--primary-lt);}
+  .type-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);}
   /* 입력 */
-  input[type=text]{width:100%;padding:15px 16px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-family:var(--font);font-size:1rem;color:var(--gray-800);background:#fff;outline:none;transition:border-color .2s, box-shadow .2s;}
-  input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,58,237,.1);}
-  input[type=text]::placeholder{color:var(--gray-400);}
-
-  /* 그리드 선택 버튼 */
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:4px;}
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:4px;}
-  .sel-btn{padding:13px 8px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);background:#fff;font-family:var(--font);font-size:.88rem;font-weight:600;color:var(--gray-600);cursor:pointer;text-align:center;transition:all .15s;}
-  .sel-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-lt);}
-  .sel-btn.sel{border-color:var(--primary);background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.25);}
-
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:.78rem;font-weight:700;color:var(--gray-600);margin-bottom:5px;}
+  input[type=text],input[type=number]{width:100%;padding:14px 15px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-family:var(--font);font-size:1rem;color:var(--gray-800);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;}
+  input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,58,237,.1);}
+  input::placeholder{color:var(--gray-400);}
+  /* 학년 선택 그리드 */
+  .grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:4px;}
+  .sel-btn{padding:11px 4px;border:1.5px solid var(--gray-200);border-radius:8px;background:#fff;font-family:var(--font);font-size:.82rem;font-weight:600;color:var(--gray-600);cursor:pointer;text-align:center;transition:all .15s;}
+  .sel-btn:hover{border-color:var(--primary);color:var(--primary);}
+  .sel-btn.sel{border-color:var(--primary);background:var(--primary);color:#fff;}
   /* 버튼 */
   .btn{width:100%;padding:15px;border:none;border-radius:var(--radius-sm);font-family:var(--font);font-size:1rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;}
   .btn-primary{background:var(--primary);color:#fff;}
   .btn-primary:hover:not(:disabled){background:var(--primary-dark);}
   .btn-primary:disabled{background:var(--gray-200);color:var(--gray-400);cursor:not-allowed;}
-  .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary);}
-  .btn-outline:hover{background:var(--primary-lt);}
+  .btn-amber{background:#D97706;color:#fff;}
+  .btn-amber:hover:not(:disabled){background:#B45309;}
+  .btn-amber:disabled{background:var(--gray-200);color:var(--gray-400);cursor:not-allowed;}
   .btn-green{background:var(--green);color:#fff;}
   .btn-green:hover:not(:disabled){background:#15803D;}
-  .btn-green:disabled{background:var(--gray-200);color:var(--gray-400);cursor:not-allowed;}
-
-  /* 확인 박스 */
-  .confirm-box{background:var(--primary-lt);border:1.5px solid rgba(124,58,237,.2);border-radius:var(--radius-sm);padding:16px;margin-bottom:14px;}
-  .confirm-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:.88rem;}
-  .confirm-row+.confirm-row{border-top:1px solid rgba(124,58,237,.1);margin-top:3px;padding-top:8px;}
-  .confirm-key{color:var(--gray-500);font-weight:500;}
-  .confirm-val{font-weight:700;color:var(--gray-800);}
-  .confirm-val.hl{color:var(--primary);}
-
+  .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary);}
+  .btn-outline:hover{background:var(--primary-lt);}
   /* 날짜 칩 */
-  .date-chip{display:inline-flex;align-items:center;gap:5px;background:var(--primary-lt);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:700;color:var(--primary);}
-
-  /* 성공 화면 */
+  .date-chip{display:inline-flex;align-items:center;gap:5px;background:var(--primary-lt);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:5px 13px;font-size:.78rem;font-weight:700;color:var(--primary);}
+  /* 성공 */
   .success-wrap{text-align:center;}
-  .success-icon{font-size:4.5rem;display:block;margin-bottom:10px;animation:pop .45s cubic-bezier(.175,.885,.32,1.275);}
-  @keyframes pop{0%{transform:scale(0) rotate(-10deg)}100%{transform:scale(1) rotate(0deg)}}
-  .success-title{font-size:1.35rem;font-weight:800;color:var(--green);margin-bottom:4px;}
-  .success-sub{font-size:.83rem;color:var(--gray-400);margin-bottom:16px;}
-  .success-detail{background:var(--green-lt);border:1px solid #BBF7D0;border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px;text-align:left;}
+  .success-icon{font-size:4.5rem;display:block;margin:8px 0;animation:pop .45s cubic-bezier(.175,.885,.32,1.275);}
+  @keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+  .success-title{font-size:1.25rem;font-weight:800;margin-bottom:4px;}
+  .success-detail{border-radius:var(--radius-sm);padding:14px 16px;margin:14px 0;text-align:left;}
   .success-detail .row{display:flex;justify-content:space-between;padding:4px 0;font-size:.85rem;}
-  .success-detail .row+.row{border-top:1px solid #D1FAE5;margin-top:2px;padding-top:6px;}
-
-  /* 이미 출석 */
-  .already-icon{font-size:3.5rem;display:block;margin-bottom:8px;}
-
+  .success-detail .row+.row{border-top:1px solid rgba(255,255,255,.3);margin-top:3px;padding-top:7px;}
   /* 오류 */
-  .err-box{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-sm);padding:10px 14px;font-size:.82rem;color:#DC2626;margin-top:10px;display:none;}
+  .err-box{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-sm);padding:10px 14px;font-size:.82rem;color:#DC2626;margin-top:8px;display:none;}
   .err-box.show{display:block;}
-
   /* 로딩 */
   .loading-wrap{text-align:center;padding:24px;color:var(--gray-400);font-size:.85rem;}
   .spin{display:inline-block;animation:spin 1s linear infinite;font-size:1.2rem;}
   @keyframes spin{to{transform:rotate(360deg)}}
-
-  /* 옵션 안내 */
-  .tip{font-size:.73rem;color:var(--gray-400);margin-top:6px;text-align:center;}
-
-  .gap{height:10px;}
-  .gap-sm{height:6px;}
-  .divider{height:1px;background:var(--gray-100);margin:12px 0;}
-
-  /* 선택된 반 표시 */
-  .class-chip{display:inline-flex;align-items:center;gap:4px;background:var(--primary-lt);color:var(--primary);border-radius:12px;padding:3px 10px;font-size:.75rem;font-weight:700;margin-left:6px;}
+  .tip{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:6px;}
+  .gap{height:10px;} .gap-sm{height:6px;}
+  .section-title{font-size:.8rem;font-weight:700;color:var(--gray-600);margin-bottom:8px;}
+  .hint-chip{display:inline-flex;align-items:center;gap:3px;background:var(--amber-lt);border:1px solid #FCD34D;border-radius:12px;padding:3px 9px;font-size:.68rem;font-weight:600;color:var(--amber);}
 </style>
 </head>
 <body>
@@ -114,21 +84,21 @@
 
 <script>
 // ════════════════════════════════════════════════════════
-// ⚙️ 설정: 아래 GAS_URL에 앱스크립트 배포 URL을 붙여넣으세요
+// ⚙️ 설정: 교사용 앱과 동일한 GAS 배포 URL을 붙여넣으세요
 // ════════════════════════════════════════════════════════
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyMa_Gk0KQNnyLugZJy9X9N0gEeyd3Hw2aD-SR05YLksm1h7b69DX8awWQcdBauI47VIg/exec';  // 예: 'https://script.google.com/macros/s/xxxx/exec'
 
 // 앱 상태
 const S = {
-  step: 1,
-  grades: [],        // ['초6','중1', ...]
-  classes: [],       // 선택된 학년의 반 목록
-  selGrade: '',
-  selClass: '',      // 선택사항
-  nameInput: '',
+  type: '',          // 'new' | 'reg'
   sundayDate: '',
   sundayLabel: '',
-  resultClass: '',   // 출석 완료 후 배정된 반
+  grades: [],
+  selGrade: '',
+  selClass: '',
+  nameInput: '',
+  bdInput: '',       // 새친구용 생년월일 6자리
+  resultClass: '',
 };
 
 // ════════════════════════════════════════════════════════
@@ -137,27 +107,20 @@ const S = {
 function callGAS(action, payload = {}) {
   return new Promise((resolve) => {
     if (!GAS_URL) { resolve({ success: false, message: 'GAS_URL을 설정해주세요.' }); return; }
-    const cbName = '_cb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
-    const timer  = setTimeout(() => {
-      cleanup();
-      resolve({ success: false, message: '연결 시간 초과 (GAS URL 확인)' });
-    }, 15000);
+    const cbName = '_cb_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+    const timer = setTimeout(() => {
+      cleanup(); resolve({ success: false, message: '연결 시간 초과. GAS URL을 확인해주세요.' });
+    }, 20000);
     function cleanup() {
-      clearTimeout(timer);
-      delete window[cbName];
-      const s = document.getElementById(cbName);
-      if (s) s.remove();
+      clearTimeout(timer); delete window[cbName];
+      const s = document.getElementById(cbName); if (s) s.remove();
     }
     window[cbName] = (data) => { cleanup(); resolve(data); };
-    const params = new URLSearchParams({
-      action,
-      payload: JSON.stringify(payload),
-      callback: cbName,
-    });
+    const params = new URLSearchParams({ action, payload: JSON.stringify(payload), callback: cbName });
     const script = document.createElement('script');
-    script.id  = cbName;
+    script.id = cbName;
     script.src = GAS_URL + '?' + params.toString();
-    script.onerror = () => { cleanup(); resolve({ success: false, message: 'GAS URL에 연결할 수 없습니다.' }); };
+    script.onerror = () => { cleanup(); resolve({ success: false, message: 'GAS에 연결할 수 없습니다.' }); };
     document.head.appendChild(script);
   });
 }
@@ -167,17 +130,16 @@ function callGAS(action, payload = {}) {
 // ════════════════════════════════════════════════════════
 async function init() {
   if (!GAS_URL) { render('error_config'); return; }
-  setLoading('학년 목록 불러오는 중...');
+  setLoading('정보 불러오는 중...');
   try {
     const [gradeRes, sunRes] = await Promise.all([
       callGAS('getGradeList'),
       callGAS('getNearestSunday'),
     ]);
-    if (!gradeRes.success) throw new Error(gradeRes.message);
+    if (!gradeRes.success) throw new Error(gradeRes.message || '학년 목록 오류');
     S.grades = gradeRes.data || [];
     S.sundayDate  = sunRes.success ? sunRes.data : '';
     S.sundayLabel = S.sundayDate ? fmtDate(S.sundayDate) : '이번 주 주일';
-    S.step = 1;
     render('step1');
   } catch(e) { render('error', e.message); }
 }
@@ -185,10 +147,12 @@ async function init() {
 // ════════════════════════════════════════════════════════
 // 렌더링
 // ════════════════════════════════════════════════════════
-function setLoading(msg) { document.getElementById('app').innerHTML = `<div class="loading-wrap"><span class="spin">⏳</span><br>${msg||'처리 중...'}</div>`; }
-
+function setLoading(msg) {
+  document.getElementById('app').innerHTML =
+    `<div class="loading-wrap"><span class="spin">⏳</span><br>${msg||'처리 중...'}</div>`;
+}
 function render(view, extra) {
-  const views = { step1, step2, step3, success, already, error_config, error };
+  const views = { step1, formNew, formReg, success_new, success_reg, already, error_config, error };
   document.getElementById('app').innerHTML = (views[view] || (() => ''))(extra);
 }
 
@@ -196,183 +160,235 @@ function logoHtml() {
   return `<div class="logo">
     <span class="logo-icon">✝️</span>
     <div class="logo-title">드림틴스 출석체크</div>
-    <div class="logo-sub">학생 자체 출석 시스템 · ${S.sundayLabel}</div>
+    <div class="logo-sub">📅 ${S.sundayLabel}</div>
   </div>`;
 }
 
-function stepsHtml(cur) {
-  const lbls = ['학년 선택','이름 입력','확인'];
+// ══ Step 1: 유형 선택 ────────────────────────────────────
+function step1() {
   return `
-    <div class="steps">
-      ${lbls.map((l,i) => {
-        const n = i+1;
-        return (i > 0 ? `<div class="step-line${n <= cur ? ' done':''}"></div>` : '') +
-          `<div class="step ${n < cur ? 'done' : n === cur ? 'active' : ''}">${n < cur ? '✓' : n}</div>`;
-      }).join('')}
+    ${logoHtml()}
+    <div style="text-align:center;margin-bottom:16px;">
+      <span class="date-chip">📅 ${S.sundayLabel}</span>
     </div>
-    <div class="step-label-row">
-      ${lbls.map((l,i) => `<div class="step-lbl${i+1===cur?' active':''}">${l}</div>`).join('')}
-    </div>`;
+    <div class="section-title">오늘 처음 오셨나요?</div>
+    <div class="type-grid">
+      <button class="type-btn" onclick="selectType('new')">
+        <span class="icon">👋</span>
+        <span class="label">새친구</span>
+        <span class="desc">처음 방문한 분</span>
+      </button>
+      <button class="type-btn" onclick="selectType('reg')">
+        <span class="icon">😊</span>
+        <span class="label">등록친구</span>
+        <span class="desc">이미 등록된 분</span>
+      </button>
+    </div>
+    <div class="tip">출석 기록이 교사 앱에 자동 반영됩니다</div>`;
 }
 
-// ── Step 1: 학년 선택 ──────────────────────────────────
-function step1() {
+function selectType(type) {
+  S.type = type;
+  render(type === 'new' ? 'formNew' : 'formReg');
+}
+
+// ══ 새친구 폼 ──────────────────────────────────────────
+function formNew() {
+  return `
+    ${logoHtml()}
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:14px;">
+      <span style="font-size:1.3rem;">👋</span>
+      <span style="font-size:.9rem;font-weight:800;color:#D97706;">새친구 출석 등록</span>
+      <span class="hint-chip">처음 방문</span>
+    </div>
+    <div class="field">
+      <label>생년월일 <span style="color:var(--amber);font-size:.7rem;">(6자리 숫자, 예: 120309)</span></label>
+      <input type="text" id="bdInput" maxlength="6" placeholder="YYMMDD (예: 120309)"
+        inputmode="numeric" value="${S.bdInput}"
+        oninput="S.bdInput=this.value.replace(/\D/g,'').slice(0,6);toggleSubmitBtn('newSubmitBtn');">
+    </div>
+    <div class="field">
+      <label>이름</label>
+      <input type="text" id="nameInputNew" placeholder="이름을 입력하세요"
+        value="${S.nameInput}"
+        oninput="S.nameInput=this.value.trim();toggleSubmitBtn('newSubmitBtn');"
+        onkeydown="if(event.key==='Enter')submitNew()">
+    </div>
+    <div class="gap"></div>
+    <button class="btn btn-amber" id="newSubmitBtn" onclick="submitNew()"
+      ${!S.bdInput||S.bdInput.length<6||!S.nameInput?'disabled':''}>
+      ✋ 출석하기
+    </button>
+    <div class="gap-sm"></div>
+    <button class="btn btn-outline" onclick="goBack()">← 뒤로</button>
+    <div id="err" class="err-box"></div>`;
+}
+
+function toggleSubmitBtn(id) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  if (id === 'newSubmitBtn') {
+    btn.disabled = !S.bdInput || S.bdInput.length < 6 || !S.nameInput;
+  } else {
+    btn.disabled = !S.nameInput;
+  }
+}
+
+async function submitNew() {
+  const bd = S.bdInput.trim();
+  const nm = S.nameInput.trim();
+  if (bd.length < 6 || !nm) return;
+
+  const btn = document.getElementById('newSubmitBtn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ 처리 중...'; }
+
+  // 새친구: saveStudentSelfAttendance를 새친구 모드로 호출
+  const r = await callGAS('saveNewbieAttendance', {
+    name: nm,
+    birthday: bd,
+    date: S.sundayDate,
+  });
+
+  if (r.success) {
+    if (r.data && r.data.alreadyChecked) { render('already'); return; }
+    S.resultClass = '';
+    render('success_new');
+  } else {
+    showErr(r.message || '오류가 발생했습니다.');
+    if (btn) { btn.disabled = false; btn.textContent = '✋ 출석하기'; }
+  }
+}
+
+// ══ 등록친구 폼 ──────────────────────────────────────────
+function formReg() {
   const gradeBtns = S.grades.map(g =>
     `<button class="sel-btn${g===S.selGrade?' sel':''}" onclick="selectGrade('${g}')">${g}</button>`
   ).join('');
+
   return `
     ${logoHtml()}
-    ${stepsHtml(1)}
-    <div style="text-align:center;margin-bottom:14px;">
-      <span class="date-chip">📅 ${S.sundayLabel}</span>
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:14px;">
+      <span style="font-size:1.3rem;">😊</span>
+      <span style="font-size:.9rem;font-weight:800;color:var(--primary);">등록친구 출석</span>
     </div>
-    <div class="section-label"><span class="badge">1</span> 학년을 선택해주세요</div>
-    <div class="grid-4" style="margin-bottom:12px;">${gradeBtns}</div>
+    <div class="field">
+      <label>학년 <span style="color:var(--gray-400);font-size:.7rem;">(반은 선택사항)</span></label>
+      <div class="grade-grid">${gradeBtns}</div>
+      ${S.selGrade ? `
+      <input type="text" id="classInput" placeholder="반 입력 (선택, 예: 1반 또는 중1-1반)"
+        value="${S.selClass}"
+        oninput="S.selClass=this.value.trim();"
+        style="margin-top:6px;font-size:.88rem;">
+      ` : ''}
+    </div>
+    <div class="field">
+      <label>이름</label>
+      <input type="text" id="nameInputReg" placeholder="이름을 입력하세요"
+        value="${S.nameInput}"
+        oninput="S.nameInput=this.value.trim();toggleSubmitBtn('regSubmitBtn');"
+        onkeydown="if(event.key==='Enter')submitReg()">
+    </div>
     <div class="gap"></div>
-    <button class="btn btn-primary" onclick="goStep2()" ${!S.selGrade?'disabled':''}>다음 →</button>
+    <button class="btn btn-primary" id="regSubmitBtn" onclick="submitReg()"
+      ${!S.selGrade||!S.nameInput?'disabled':''}>
+      ✅ 출석하기
+    </button>
+    <div class="gap-sm"></div>
+    <button class="btn btn-outline" onclick="goBack()">← 뒤로</button>
     <div id="err" class="err-box"></div>`;
 }
 
 function selectGrade(g) {
   S.selGrade = g; S.selClass = '';
-  render('step1');
+  render('formReg');
+  // 이름 입력창 포커스
+  setTimeout(() => {
+    const n = document.getElementById('nameInputReg');
+    if (n) n.focus();
+  }, 100);
 }
 
-async function goStep2() {
-  if (!S.selGrade) return;
-  setLoading('반 목록 불러오는 중...');
-  const r = await callGAS('getClassesByGrade', { grade: S.selGrade });
-  S.classes = (r.success ? r.data : []) || [];
-  S.step = 2;
-  render('step2');
-}
+async function submitReg() {
+  if (!S.selGrade || !S.nameInput) return;
+  // 반 입력 처리: "1반" → "중1-1반" 자동 완성 시도
+  const rawClass = S.selClass;
+  let resolvedClass = '';
+  if (rawClass) {
+    // "1반"처럼 학년 없이 반만 입력한 경우
+    if (/^\d반$/.test(rawClass)) {
+      resolvedClass = S.selGrade + '-' + rawClass;
+    } else if (rawClass.includes(S.selGrade)) {
+      resolvedClass = rawClass; // 이미 학년 포함
+    } else {
+      resolvedClass = S.selGrade + '-' + rawClass;
+    }
+  }
 
-// ── Step 2: 이름 입력 + 반 선택(선택사항) ────────────────
-function step2() {
-  const classBtns = S.classes.map(c =>
-    `<button class="sel-btn${c===S.selClass?' sel':''}" onclick="selectClass('${c}')">${c.replace(S.selGrade,'').trim()||c}</button>`
-  ).join('');
-  const classSection = S.classes.length > 1 ? `
-    <div class="section-label" style="margin-top:14px;"><span class="badge">+</span> 반 선택 <span style="font-size:.7rem;color:var(--gray-400);font-weight:400;">(선택사항 · 동명이인 구분용)</span></div>
-    <div class="grid-4">${classBtns}</div>` : '';
-
-  return `
-    ${logoHtml()}
-    ${stepsHtml(2)}
-    <div class="section-label">
-      <span class="badge">2</span> 이름을 입력해주세요
-      <span class="class-chip">📚 ${S.selGrade}${S.selClass ? ' ' + S.selClass.replace(S.selGrade,'').trim() : ''}</span>
-    </div>
-    <input type="text" id="nameInput" placeholder="이름 입력 (예: 홍길동)"
-      value="${S.nameInput}"
-      oninput="S.nameInput=this.value.trim();toggleNextBtn();"
-      onkeydown="if(event.key==='Enter')goStep3()">
-    ${classSection}
-    <div class="gap"></div>
-    <div style="display:flex;gap:8px;">
-      <button class="btn btn-outline" onclick="goBack(1)" style="flex:1;">← 뒤로</button>
-      <button class="btn btn-primary" id="nextBtn" onclick="goStep3()" style="flex:2;" ${!S.nameInput?'disabled':''}>다음 →</button>
-    </div>
-    <div id="err" class="err-box"></div>`;
-}
-
-function selectClass(c) {
-  S.selClass = S.selClass === c ? '' : c; // 토글
-  render('step2');
-  setTimeout(() => { const n = document.getElementById('nameInput'); if(n){n.focus();n.setSelectionRange(n.value.length,n.value.length);} }, 50);
-}
-
-function toggleNextBtn() {
-  const btn = document.getElementById('nextBtn');
-  if (btn) btn.disabled = !S.nameInput;
-}
-
-function step3() {
-  return `
-    ${logoHtml()}
-    ${stepsHtml(3)}
-    <div class="section-label"><span class="badge">3</span> 출석 정보를 확인해주세요</div>
-    <div class="confirm-box">
-      <div class="confirm-row">
-        <span class="confirm-key">학년</span>
-        <span class="confirm-val">${S.selGrade}${S.selClass ? ' ' + S.selClass.replace(S.selGrade,'').trim() : ''}</span>
-      </div>
-      <div class="confirm-row">
-        <span class="confirm-key">이름</span>
-        <span class="confirm-val hl" style="font-size:1.05rem;">${S.nameInput}</span>
-      </div>
-      <div class="confirm-row">
-        <span class="confirm-key">날짜</span>
-        <span class="confirm-val">${S.sundayLabel}</span>
-      </div>
-    </div>
-    <p class="tip" style="margin-bottom:12px;">위 정보가 맞으면 출석 완료 버튼을 눌러주세요</p>
-    <button class="btn btn-green" id="submitBtn" onclick="submitAttendance()">✅ 출석 완료</button>
-    <div class="gap-sm"></div>
-    <button class="btn btn-outline" onclick="goBack(2)">← 이름 다시 입력</button>
-    <div id="err" class="err-box"></div>`;
-}
-
-async function goStep3() {
-  const nameEl = document.getElementById('nameInput');
-  if (nameEl) S.nameInput = nameEl.value.trim();
-  if (!S.nameInput) return;
-  S.step = 3;
-  render('step3');
-}
-
-async function submitAttendance() {
-  const btn = document.getElementById('submitBtn');
-  if (btn) { btn.disabled = true; btn.textContent = '⏳ 저장 중...'; }
+  const btn = document.getElementById('regSubmitBtn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ 처리 중...'; }
 
   const r = await callGAS('saveStudentSelfAttendanceByGrade', {
-    grade:      S.selGrade,
-    classGroup: S.selClass || '',
-    name:       S.nameInput,
-    date:       S.sundayDate,
+    grade: S.selGrade,
+    classGroup: resolvedClass,
+    name: S.nameInput,
+    date: S.sundayDate,
   });
 
   if (r.success) {
-    S.resultClass = (r.data && r.data.classGroup) || S.selClass || S.selGrade;
-    if (r.data && r.data.alreadyChecked) render('already');
-    else render('success');
+    if (r.data && r.data.alreadyChecked) { render('already'); return; }
+    S.resultClass = (r.data && r.data.classGroup) || resolvedClass || S.selGrade;
+    render('success_reg');
   } else if (r.needClass) {
-    // 동명이인: 반 선택 팝업
-    const clsList = r.classes || [];
-    const clsOpts = clsList.map(c => `<button class="sel-btn" style="margin:3px;" onclick="chooseDuplClass('${c}')">${c}</button>`).join('');
-    const errEl = document.getElementById('err');
-    if (errEl) {
-      errEl.innerHTML = `⚠️ 동명이인이 있습니다. 반을 선택해주세요:<br><div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${clsOpts}</div>`;
-      errEl.classList.add('show');
-    }
-    if (btn) { btn.disabled = false; btn.textContent = '✅ 출석 완료'; }
+    // 동명이인 처리: 반 선택 버튼 표시
+    const clsBtns = (r.classes||[]).map(c =>
+      `<button class="sel-btn" style="margin:3px;" onclick="pickDuplClass('${c}')">${c}</button>`
+    ).join('');
+    showErr(`동명이인이 있습니다. 반을 선택해주세요:<br><div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${clsBtns}</div>`);
+    if (btn) { btn.disabled = false; btn.textContent = '✅ 출석하기'; }
   } else {
-    const errEl = document.getElementById('err');
-    if (errEl) { errEl.textContent = r.message || '오류가 발생했습니다.'; errEl.classList.add('show'); }
-    if (btn) { btn.disabled = false; btn.textContent = '✅ 출석 완료'; }
+    showErr(r.message || '오류가 발생했습니다.');
+    if (btn) { btn.disabled = false; btn.textContent = '✅ 출석하기'; }
   }
 }
 
-async function chooseDuplClass(cls) {
+async function pickDuplClass(cls) {
   S.selClass = cls;
-  render('step3');
-  setTimeout(submitAttendance, 100);
+  render('formReg');
+  setTimeout(submitReg, 100);
 }
 
-function success() {
+// ══ 성공 화면 ────────────────────────────────────────────
+function success_new() {
   return `
     <div class="success-wrap">
       ${logoHtml()}
       <span class="success-icon">🎉</span>
-      <div class="success-title">출석 완료!</div>
-      <div class="success-sub">출석이 성공적으로 저장되었습니다</div>
-      <div class="success-detail">
-        <div class="row"><span style="color:var(--gray-500);">반</span><span style="font-weight:700;">${S.resultClass}</span></div>
-        <div class="row"><span style="color:var(--gray-500);">이름</span><span style="font-weight:700;color:var(--green);">${S.nameInput}</span></div>
-        <div class="row"><span style="color:var(--gray-500);">날짜</span><span style="font-weight:700;">${S.sundayLabel}</span></div>
+      <div class="success-title" style="color:var(--amber);">환영합니다!</div>
+      <div style="font-size:.84rem;color:var(--gray-500);margin-bottom:10px;">새친구 출석이 등록되었습니다</div>
+      <div class="success-detail" style="background:var(--amber-lt);border:1px solid #FCD34D;">
+        <div class="row"><span style="color:#78350F;">이름</span><span style="font-weight:800;color:#92400E;">${S.nameInput}</span></div>
+        <div class="row"><span style="color:#78350F;">날짜</span><span style="font-weight:700;">${S.sundayLabel}</span></div>
+        <div class="row"><span style="color:#78350F;">상태</span><span style="font-weight:700;color:var(--amber);">새친구 등록 완료 ✓</span></div>
       </div>
-      <p style="font-size:.75rem;color:var(--gray-400);margin-bottom:16px;">✝️ 교사 앱에서도 출석으로 표시됩니다</p>
-      <button class="btn btn-outline" onclick="resetApp()">다른 학생 출석체크 →</button>
+      <p style="font-size:.75rem;color:var(--gray-400);margin-bottom:14px;">담임 선생님이 곧 연락드릴 거예요 😊</p>
+      <button class="btn btn-outline" onclick="resetApp()">다른 분도 출석하기 →</button>
+    </div>`;
+}
+
+function success_reg() {
+  return `
+    <div class="success-wrap">
+      ${logoHtml()}
+      <span class="success-icon">✅</span>
+      <div class="success-title" style="color:var(--green);">출석 완료!</div>
+      <div style="font-size:.84rem;color:var(--gray-500);margin-bottom:10px;">출석이 성공적으로 저장되었습니다</div>
+      <div class="success-detail" style="background:var(--green-lt);border:1px solid #BBF7D0;">
+        <div class="row"><span style="color:#14532D;">반</span><span style="font-weight:700;">${S.resultClass}</span></div>
+        <div class="row"><span style="color:#14532D;">이름</span><span style="font-weight:800;color:var(--green);">${S.nameInput}</span></div>
+        <div class="row"><span style="color:#14532D;">날짜</span><span style="font-weight:700;">${S.sundayLabel}</span></div>
+      </div>
+      <p style="font-size:.75rem;color:var(--gray-400);margin-bottom:14px;">✝️ 교사 앱에서도 출석으로 표시됩니다</p>
+      <button class="btn btn-outline" onclick="resetApp()">다른 분도 출석하기 →</button>
     </div>`;
 }
 
@@ -380,31 +396,31 @@ function already() {
   return `
     <div class="success-wrap">
       ${logoHtml()}
-      <span class="already-icon">✅</span>
-      <div style="font-size:1.2rem;font-weight:800;color:var(--primary);margin-bottom:6px;">이미 출석 처리됨</div>
-      <div style="font-size:.85rem;color:var(--gray-500);margin-bottom:16px;">
-        <strong style="color:var(--gray-700);">${S.nameInput}</strong> 학생은 오늘 이미 출석 처리되었습니다.
+      <span class="success-icon" style="font-size:3.5rem;">✅</span>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--primary);margin-bottom:6px;">이미 출석 처리됨</div>
+      <div style="font-size:.85rem;color:var(--gray-500);margin-bottom:14px;">
+        <strong style="color:var(--gray-700);">${S.nameInput}</strong>님은 오늘 이미 출석 처리되었습니다.
       </div>
-      <div style="background:var(--primary-lt);border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;font-size:.85rem;color:var(--primary);font-weight:600;">
+      <div style="background:var(--primary-lt);border-radius:var(--radius-sm);padding:12px;margin-bottom:14px;font-size:.85rem;color:var(--primary);font-weight:600;">
         📅 ${S.sundayLabel}
       </div>
-      <button class="btn btn-outline" onclick="resetApp()">다른 학생 출석체크 →</button>
+      <button class="btn btn-outline" onclick="resetApp()">다른 분 출석하기 →</button>
     </div>`;
 }
 
+// ══ 오류 화면 ────────────────────────────────────────────
 function error_config() {
   return `
     ${logoHtml()}
-    <div style="text-align:center;padding:12px 0;">
+    <div style="text-align:center;padding:10px 0;">
       <div style="font-size:2.5rem;margin-bottom:10px;">⚙️</div>
-      <div style="font-weight:800;color:var(--gray-800);margin-bottom:10px;font-size:1rem;">GAS_URL 설정이 필요합니다</div>
-      <div style="font-size:.82rem;color:var(--gray-500);line-height:1.7;text-align:left;background:var(--gray-50);border-radius:var(--radius-sm);padding:14px;">
+      <div style="font-weight:800;color:var(--gray-800);margin-bottom:10px;">GAS_URL 설정 필요</div>
+      <div style="font-size:.82rem;color:var(--gray-500);line-height:1.7;text-align:left;background:var(--gray-50);border-radius:var(--radius-sm);padding:14px 16px;">
         <strong>설정 방법:</strong><br>
-        1. 이 HTML 파일을 열어서<br>
-        2. 상단 <code style="background:#fff;padding:1px 5px;border-radius:4px;font-size:.78rem;">GAS_URL = ''</code> 부분에<br>
-        3. 교사용 앱과 <strong>동일한 GAS 배포 URL</strong>을 붙여넣으세요<br><br>
-        <strong>예시:</strong><br>
-        <code style="background:#fff;padding:3px 8px;border-radius:4px;font-size:.72rem;word-break:break-all;">GAS_URL = 'https://script.google.com/macros/s/xxx.../exec'</code>
+        1. 이 파일의 맨 위<br>
+        <code style="background:#fff;padding:2px 6px;border-radius:4px;font-size:.75rem;">GAS_URL = ''</code><br>
+        2. 작은따옴표 안에 GAS 배포 URL 붙여넣기<br>
+        3. 파일 저장 후 새로고침
       </div>
     </div>`;
 }
@@ -412,7 +428,7 @@ function error_config() {
 function error(msg) {
   return `
     ${logoHtml()}
-    <div style="text-align:center;padding:12px 0;">
+    <div style="text-align:center;padding:10px 0;">
       <div style="font-size:2.5rem;margin-bottom:8px;">⚠️</div>
       <div style="font-weight:700;color:#DC2626;margin-bottom:6px;">연결 오류</div>
       <div style="font-size:.82rem;color:var(--gray-500);margin-bottom:16px;">${msg||''}</div>
@@ -420,27 +436,32 @@ function error(msg) {
     </div>`;
 }
 
-// ── 유틸 ─────────────────────────────────────────────────
+// ══ 유틸 ────────────────────────────────────────────────
 function fmtDate(d) {
   if (!d) return '';
   const [y,m,dy] = d.split('-');
   const days = ['일','월','화','수','목','금','토'];
-  const date = new Date(+y, +m-1, +dy);
+  const date = new Date(+y,+m-1,+dy);
   return `${+m}월 ${+dy}일 (${days[date.getDay()]})`;
 }
 
-function goBack(step) {
-  S.step = step;
-  if (step === 1) { S.selClass = ''; S.nameInput = ''; }
-  render('step' + step);
+function showErr(msg) {
+  const el = document.getElementById('err');
+  if (!el) return;
+  el.innerHTML = msg;
+  el.classList.add('show');
 }
 
-function resetApp() {
-  Object.assign(S, { step:1, selGrade:'', selClass:'', nameInput:'', resultClass:'' });
+function goBack() {
+  S.nameInput = ''; S.bdInput = ''; S.selGrade = ''; S.selClass = '';
   render('step1');
 }
 
-// ── 시작 ─────────────────────────────────────────────────
+function resetApp() {
+  Object.assign(S, { type:'', nameInput:'', bdInput:'', selGrade:'', selClass:'', resultClass:'' });
+  render('step1');
+}
+
 init();
 </script>
 </body>
