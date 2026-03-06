@@ -159,7 +159,7 @@ function render(view, extra) {
 function logoHtml() {
   return `<div class="logo">
     <span class="logo-icon">✝️</span>
-    <div class="logo-title">드림틴스 출석체크</div>
+    <div class="logo-title">드림틴즈 출석체크</div>
     <div class="logo-sub">📅 ${S.sundayLabel}</div>
   </div>`;
 }
@@ -314,6 +314,11 @@ function formNewInfo() {
       <input type="tel" id="newParentMo" placeholder="010-0000-0000" value="${S._newParentMo||''}"
         oninput="S._newParentMo=this.value.trim()">
     </div>
+    <div class="field">
+      <label>주소 <span style="color:var(--gray-400);font-size:.7rem;">(선택)</span></label>
+      <input type="text" id="newAddress" placeholder="주소를 입력하세요" value="${S._newAddress||''}"
+        oninput="S._newAddress=this.value.trim()">
+    </div>
     <div class="gap"></div>
     <button class="btn btn-amber" id="newInfoSubmitBtn" onclick="submitNewInfo()">
       ✋ 등록 + 출석하기
@@ -327,11 +332,12 @@ async function submitNewInfo() {
   const btn = document.getElementById('newInfoSubmitBtn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ 처리 중...'; }
   await submitNew({
-    gender:   S._newGender  || '',
-    school:   S._newSchool  || '',
-    phone:    S._newPhone   || '',
+    gender:   S._newGender   || '',
+    school:   S._newSchool   || '',
+    phone:    S._newPhone    || '',
     parentFa: S._newParentFa || '',
     parentMo: S._newParentMo || '',
+    address:  S._newAddress  || '',
   });
 }
 
